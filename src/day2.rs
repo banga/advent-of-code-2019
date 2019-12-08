@@ -68,3 +68,21 @@ pub fn part1() {
 
     println!("{}", program[0]);
 }
+
+pub fn part2() {
+    let program = read_inputs();
+
+    for noun in 0..99 {
+        for verb in 0..99 {
+            let mut program = program.clone();
+            program[1] = noun;
+            program[2] = verb;
+            run_program(&mut program);
+
+            if program[0] == 19690720 {
+                println!("{}", 100 * noun + verb);
+                return;
+            }
+        }
+    }
+}
